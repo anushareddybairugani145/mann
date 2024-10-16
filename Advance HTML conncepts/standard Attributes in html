@@ -1,0 +1,14 @@
+1)align - horizontally aligned tags
+2)background - places a background image behind an element
+3)class-classifies an element for use with cascading style sheet
+4)contenteditable - specifies if the user can edit the content or not
+5)draggable - specifies whether or not a user is allowed to drag an element
+6)height - specifies the height of a table,image or table cells
+7)hidden - specifies whether the element should be visible or not
+8)id- names an element for use with class-classifies
+9)item - used to group element
+10)itemprop - used to group items
+11)spell check- specifies if the element must have its spelling or grammar checked.
+12)style-specifiees an inline style for an element
+13)valign - align element vertically
+14)width - specifes with of tables,table cells , images etc 

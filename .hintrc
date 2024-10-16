@@ -1,0 +1,49 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "meta-viewport": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "frame-title": "off"
+      }
+    ],
+    "no-inline-styles": "off",
+    "compat-api/html": [
+      "off",
+      {
+        "ignore": [
+          "iframe[referrerpolicy=no-referrer-when-downgrade]"
+        ]
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 127",
+    "not firefox <= 130",
+    "not ios_saf <= 18",
+    "not safari <= 18",
+    "not and_ff <= 127",
+    "not firefox <= 130",
+    "not ios_saf <= 18",
+    "not safari <= 18",
+    "not and_ff <= 127",
+    "not firefox <= 130",
+    "not ios_saf <= 18",
+    "not safari <= 18",
+    "not and_ff <= 127",
+    "not firefox <= 130",
+    "not ios_saf <= 18",
+    "not safari <= 18"
+  ]
+}

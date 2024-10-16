@@ -1,0 +1,25 @@
+Tags in Html
+1)Head 
+2)Body 
+3)Paragraph
+4)The <pre> tag defines preformatted text. 
+Text in a <pre> element is displayed in a fixed-width font, and 
+the text preserves both spaces and line breaks
+5)Div Tag block Level 
+6)Span tag  Generic Inline 
+7)footer tag
+8)Image tag 
+9)Anchor tag
+10)iframe
+11)Quotation tags - 
+a.abbr - abbrevation
+b.address - contact info for the owner of the doc
+c.bdo - bi direction override
+d.q - Quotation
+e.blockquote
+12)marquee is deprecated in html5
+13)aside
+14)article
+15)<style> tag 
+style="colour: black" attribute
+

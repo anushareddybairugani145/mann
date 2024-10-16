@@ -1,0 +1,48 @@
+//call - if structure is same then only we can use call()
+
+/*const person1 = new Object({
+    name:"anusha",
+    age:22,
+    jobdetails: function() { 
+        return this.name+ " " + this.age;
+    },
+});
+console.log(person1.jobdetails.call(person1)); //anusha 22
+
+const person = new Object({
+    name:"xyz",
+    age:22,
+});
+console.log(person1.jobdetails.call(person)); //xyz 22*/
+
+//apply same as call function but apply function helps the array auto splitting 
+
+const person = new Object({
+    name: "anusha",
+    age:22,
+    contactdetails : function(phonenumber, email) {        //arugument are passed still its not working
+        return phonenumber+ " " + email;
+    },
+});
+//console.log(person.contactdetails());
+
+const person1 = new Object({
+    name: "anusha",
+    age:22,
+});
+
+var arr = [1234566789,"anusha@gmail.com"];
+//console.log(person.contactdetails.call(person1,arr[0],arr[1]));
+console.log(person.contactdetails.apply(person1,arr));
+console.log(person);
+
+//bind - person object 1  full name method -----> the pwwerson2 method should borrow from person object1 
+/*const person = new Object({
+    fullname:"anusha reddy",
+    surname:"bairugani",
+    getfullname: function(){
+        return this.fullname + " " + this.surname;
+    },
+});
+const getfullname = person.getfullname.bind(person);
+console.log(getfullname());*/

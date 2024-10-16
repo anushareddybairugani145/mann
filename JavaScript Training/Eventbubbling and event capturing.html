@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <style>
+            div{
+                color: rgb(204, 16, 16);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-items: center;                
+            }
+            h2{
+            #grandparent{
+                background-color:red;
+                width: 300px;
+                height: 300px;
+            }
+            #parent{
+                background-color:rgb(23, 152, 11);
+                width: 200px;
+                height: 200px;
+            }
+            #child{
+                background-color:rgb(51, 255, 0);
+                width: 100px;
+                height: 100;
+            }
+            }
+           
+        </style>
+    </head>
+    <body>
+        <h2><div>
+            <div id="grandparent">grandparent
+                <div id="parent">parent
+                    <div id="child">child</div>
+        </div></h2>
+        
+    </body>
+    <script>
+           const grandparent = document.getElementById("grandparent");
+           const parent = document.getElementById("parent");
+           const child = document.getElementById("child");
+
+           grandparent.addEventListener("click",(e) =>{
+              console.log("grandparent");
+           },{capture : false});
+
+           parent.addEventListener("click",(e) =>{
+            console.log("parent");
+           },{capture : false});
+
+           child.addEventListener("click",(e) =>{
+            e.stopPropagation();
+            console.log("child");
+           },{capture : false});
+        </script>
+</html>
+
+<!--eventcapturing ---- capture :true its outer to inner -->
+
+<!--<html>
+    <body>
+        <div>
+            <div id="grandparent">grandparent
+                <div id="parent">parent
+                    <div id="child">child</div>
+        </div>
+    </body>
+    <script>
+           const grandparent = document.getElementById("grandparent");
+           const parent = document.getElementById("parent");
+           const child = document.getElementById("child");
+
+           grandparent.addEventListener("click",(e) =>{
+              console.log("grandparent");
+           },{capture : true});
+
+           parent.addEventListener("click",(e) =>{
+            console.log("parent");
+           },{capture : true});
+
+           child.addEventListener("click",(e) =>{
+            console.log("child");
+           },{capture : true});
+        </script>
+</html>-->
