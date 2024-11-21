@@ -1,0 +1,10 @@
+const number = [1,2,3,4,5];
+const sum = number.reduce((accumulator , currentValue) => {
+    return accumulator + currentValue;
+}, 0);
+console.log(sum);
+
+
+const num=[9,22,32,45,55];
+const add =num.reduce((a,b)=> a+b, 0);
+console.log(add);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+    
+</head>
+<body>
+    <label for="costprice">Enter cost price :</label>
+    <input type="number" id="costprice" placeholder= "Enter cost price" >
+    <button onclick="calculateDiscountprice()">calculate Discount price</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateDiscountprice(){
+            const costprice = parseFloat(document.getElementById('costprice').value);
+
+            //calcuate the selling price after applying 20% discount
+            const discount = 0.20 * costprice;
+            const sellingprice = costprice - discount;
+
+            document.getElementById("result").innerText = `selling price after 20% discount: ${sellingprice.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

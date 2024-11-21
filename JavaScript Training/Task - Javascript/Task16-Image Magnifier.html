@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Magnifier</title>
+    <style>
+        .img-container {
+            position: relative;
+            width: 300px;
+        }
+        .img-container img{
+            width:100%;
+            cursor: zoom-in;
+        }
+        .magnifier-lens {
+            position: absolute;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            visibility: hidden;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-container">
+        <img src="D:\FrontEnd Training\Images\magnifierex.jpeg" id="image" alt="sampleImage">
+        <div class="magnifier-lens" id="lens"></div>
+    </div>
+    <script>
+        const img = document.getElementById('image');
+        const lens = document.getElementById('lens');
+
+        img.addEventListener('mousemove', moveLens);
+        img.addEventListener('mouseleave',() => {
+            lens.style.visibility = 'hidden';
+        });
+        img.addEventListener('mouseenter' , () => {
+            lens.style.visibility = 'visible';
+            lens.style.backgroundImage = `url($(img.src))`;
+            lens.style.backgroundSize = img.width * 2 + 'px' + img.height * 2 + 'px';
+        });
+
+        function moveLens(e) {
+            const pos = getCursorPos(e);
+            const x = pos.x - lens.offsetWidth / 2;
+            const y = pos.y - lens.offsetHeight / 2;
+
+
+            lens.style.left = Math.max(0, Math.min(x, img.width - lens.offsetWidth)) + 'px';
+            lens.style.top = Math.max(0,Math.min(y,img.height - lens.offsetHeight)) + 'px';
+            lens.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+        }
+        function getCursorPos(e) {
+            const rect = img.getBoundingClientRect();
+            return {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            };
+        }
+    </script>
+</body>
+</html>

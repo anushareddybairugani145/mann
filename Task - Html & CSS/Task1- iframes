@@ -1,0 +1,34 @@
+ 1. What are iFrames?
+
+An **iFrame** (inline frame) is an HTML element (`<iframe>`) that allows you to embed another HTML page within a current web page. It creates a separate, independent frame or window on the page that can load content from a different source, such as a different URL or domain.
+2. Purpose of iFrames
+
+The primary purpose of an iFrame is to display external or isolated content within a webpage. Common uses include:
+   - **Embedding third-party content**: Showing videos from YouTube, maps from Google Maps, or social media posts.
+   - **Isolating code**: Running code that needs to be separated from the parent page for security or compatibility.
+   - **Displaying web applications**: Integrating applications from other domains without redirecting the user to a different page.
+   - **Sandboxing**: Limiting access between the content in the iFrame and the parent document for security reasons.
+
+3. When to Use iFrames in HTML
+
+Use iFrames in scenarios where you need to:
+   - **Display content from a third-party website** without modifying your page’s structure.
+   - **Isolate content** from the rest of your page for security or compatibility reasons.
+   - **Embed dynamic media or services** like streaming content, forms, and widgets from external sources.
+   - **Integrate different domains** on the same page while keeping each domain's content sandboxed to avoid conflicts or security risks.
+
+ Example
+
+Here's an example of embedding a YouTube video using an iFrame:
+
+```html
+<iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/exampleVideoID" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+``` 
+
+This code embeds a YouTube video while keeping the main page structure unaffected by YouTube's code.

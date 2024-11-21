@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Manager</title>
+</head>
+<body>
+    <h1>Loan Application</h1>
+
+    <form id="loanForm">
+        <label for="name" >Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="income" >Monthly Income:</label>
+        <input type="number" id="income" required>
+
+        <label for="balance" >Account Balance:</label>
+        <input type="number" id="balance" required>
+
+        <button type="button" onclick="applyLoan()">Apply for Loan</button>
+    </form>
+
+    <h2>Loan Applications</h2>
+    <div id="loanApplications"></div>
+<script>
+    class Loan {
+        constructor(name,income, balance) {
+            this.name = name;
+            this.income =income;
+            this.balance = balance;
+            this.status = "Pending";
+        }
+    }
+    class LoanManager {
+        constructor(minIncome = 30000,minBalance = 10000) {
+            this.loans =  [];
+            this.minIncome = minIncome;
+            this.minBalance = minBalance;
+        }
+    applyLoan(name,income,balance) {
+        const loan = new Loan(name,income,balance);
+        this.loans.push(loan);
+        this.updateLoanStatus(loan);
+        this.displayLoans();
+    }
+    updateLoanStatus(loan){
+        if (loan.income>= this.minIncome && loan.balance>= this.minBalance) {
+            loan.status = "Approved";
+        } else {
+            loan.status = "Rejected"
+        }
+    }
+    displayLoans() {
+        const loanContainer = document.getElementById("loanApplications");
+        loanContainer.innerHtml ='';
+        this.loans.forEach((loan,index) => {
+            loanContainer.innerHTML += `
+            <div>
+                <p><strong> Application:</strong>${loan.name}</p>
+                <p><strong> Income:</strong>${loan.income}</p>
+                <p><strong> Balance:</strong>${loan.balance}</p>
+                <p><strong> status:</strong>${loan.status}</p>
+            </div> ;`
+        });
+    }
+}
+const loanManager = new LoanManager();
+function applyLoan() {
+    const name = document.getElementById("name").value;
+    const income = parseFloat(document.getElementById("income").value);
+    const balance = parseFloat(document.getElementById("balance").value);
+
+
+    if (name && income && balance) {
+        loanManager.applyLoan(name,income,balance);
+        document.getElementById("loanForm").reset();
+    }else {
+        alert("Please fill out all fields.");
+    }
+}
+</script>
+</body>
+</html>

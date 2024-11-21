@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .error {
+            color:red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reset Password</h2>
+    <form id="resetPasswordForm">
+        <label for ="newPassword">New Password:</label><br>
+        <input type ="password" id="newPassword" required oncopy="showCopyMessage(event)" onpaste="showPasteMessage(event)" oncontextmenu="return false;"><br><br>
+
+        <label for ="confirmPassword">Confirm Password:</label><br>
+        <input type ="password" id="confirmPassword" required oncopy="showCopyMessage(event)" onpaste="showPasteMessage(event)" oncontextmenu="return false;"><br><br>
+
+        <input type="submit" value="Reset Password">
+    </form>
+    <p id="copyMessage" class="error">Copy is restricted</p>
+    <p id="pasteMessage" class="error">Paste is restricted</p>
+
+    <script>
+        function showCopyMessage(event){
+            event.preventDefault();
+            console.log("copy event triggered");
+            document.getElementById('copyMessage').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('copyMessage').style.display ='none';
+            }, 2000);
+        }
+        function showPasteMessage(event){
+            event.preventDefault();
+            document.getElementById('pasteMessage').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('pasteMessage').style.display ='none';
+            }, 2000);
+        }
+        document.addEventListener('contextmenu', function(event){
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

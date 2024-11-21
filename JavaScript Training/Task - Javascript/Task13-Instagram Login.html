@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome to Instagram</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginType">login via:</label>
+                <select id="loginType" onchange="clearErrors()">
+                    <option value="email">Email</option>
+                    <option value="username">Username</option>
+                    <option value="mobile">Mobile Number</option>
+                </select>
+            </div>
+            <div class="form-group">  
+                <label for="loginInput">Username / Email / Mobile:</label>
+                <input type="text" id="loginInput" required>
+                <div class="error" id="loginError"></div> 
+            </div>
+            <div class="form-group">  
+                <label for="password">password:</label>
+                <input type="password" id="password" required>
+                <div class="error" id="passwordError"></div> 
+            </div>
+            <button type="submit">login</button>
+        </form>
+    </div>
+    <script>
+        function clearErrors(){
+            document.getElementById("loginError").textContent="";
+            document.getElementById("passwordError").textContent = "";
+        }
+        document.getElementById("loginForm").addEventListener("submit" , function(event) {
+            event.preventDefault();
+            const loginInput = document.getElementById("loginInput").value;
+            const password = document.getElementById("password").value;
+            const loginType = document.getElementById("loginType").value;
+            let isValid = true;
+
+
+            const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").textContent = "Password must be at least 8 character long and contain atleast 1 uppercase letter, 1 digit,and 1 special character";
+                isValid = false;
+            }else {
+                document.getElementById("passwordError").textContent = "";
+            }
+            if (loginType === "email") {
+                if (!loginInput.endsWith("@gmail.com")) {
+                    document.getElementById("loginError").textContent = "Email must end with @gmail.com";
+                    isValid = false;
+                }else {
+                    document.getElementById("loginError").textContent="";
+                }
+            }else if (loginType === "username") {
+                const usernameRegex =  /^[A-Za-z]+[A-Za-z0-9]*$/;
+                if (!usernameRegex.test(loginInput)) {
+                    document.getElementById("loginError").textContent ="username must not contain space or digits.";
+                    isValid=false;
+                } else {
+                    document.getElementById("loginError").textContent = "";
+                }
+            } else if (loginType === "mobile") {
+                const mobileRegex = /^\d{10}$/;
+                if (!mobileRegex.test(loginInput)) {
+                    document.getElementById("loginError").textContent = "mobile Number must be exactly 10 digits.";
+                    isValid = false;
+                } else {
+                    document.getElementById("loginError").textContent="";
+                }
+            }
+            if  (isValid) {
+                alert ("Login sucessfull!");
+            }
+        });
+    </script>
+</body>
+</html>

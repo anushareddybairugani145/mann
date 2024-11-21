@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input,button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Bank Account</h2>
+    <label>Account Number:</label>
+    <input type="text" id="accountNumber" placeholder="Enter account number" />
+    
+    <label>Account Holder Name:</label>
+    <input type="text" id="accountHolderName" placeholder="Enter account holder name" />
+
+    <label>Deposit Amount:</label>
+    <input type="number" id="depositAmount" placeholder="Enter amount to deposit" />
+
+    <label>Withdraw Amount:</label>
+    <input type="number" id="withdrawAmount" placeholder="Enter amount to withdraw" />
+
+
+    <button onclick="createAccount()">create Account</button>
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">WithDraw</button>
+    <button onclick="checkBalance()">CheckBalance</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    let bankAccount;
+    class BankAccount {
+        constructor(accountNumber,accountHolderName,balance = 0) {
+            this.accountNumber = accountNumber;
+            this.accountHolderName = accountHolderName;
+            this.balance = balance;
+        }
+        deposit(amount) {
+            this.balance += amount;
+            return this.balance;
+        }
+        withdraw(amount) {
+            if (amount > this.balance) {
+                return "Insufficient Balance!";
+            }
+            this.balance -= amount;
+            return this.balance;
+        }
+        checkBalance() {
+            return this.balance;
+        }
+    }
+    function createAccount() {
+        const accountNumber = document.getElementById('accountNumber').value;
+        const accountHolderName = document.getElementById('accountHolderName').value;
+
+        if (!accountNumber || !accountHolderName) {
+            document.getElementById('result').innerText = "please fill in account number and holder name.";
+            return;
+        }
+        bankAccount = new BankAccount(accountNumber, accountHolderName);
+        document.getElementById('result').innerText="Account created successfully!";
+    }
+
+    function deposit() {
+        const amount = parseFloat(document.getElementById('depositAmount').value)
+        if (isNaN(amount) || amount <= 0) {
+            document.getElementById('result').innerText = "please enter a valid Deposit number.";
+            return;
+        }
+        const balance = bankAccount.deposit(amount);
+        document.getElementById('result').innerText=`Deposited ${amount}. New Balance: ${balance}`;
+    }
+
+    function withdraw() {
+        const amount = parseFloat(document.getElementById('withdrawAmount').value);
+        if (isNaN(amount) || amount <= 0) {
+            document.getElementById('result').innerText = "please enter a valid withdraw amount.";
+            return;
+        }
+        const result = bankAccount.withdraw(amount);
+        if (result === "Insufficient balance!"){
+            document.getElementById('result').innerText = result;
+        } else {
+            document.getElementById('result').innerText = `withdraw ${amount} .New Balance: ${result}`;
+        }
+    }
+
+    function checkBalance() {
+        if(!bankAccount) {
+            document.getElementById('result').innerText = "please create an account first.";
+            return;
+        }
+        const balance = bankAccount.checkBalance();
+        document.getElementById('result').innerText = `Current Balance: ${balance}`;
+    }
+</script>
+</body>
+</html>

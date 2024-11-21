@@ -1,0 +1,88 @@
+Html and Css 
+
+What are iFrames ?
+Purpose of iFrames ?
+In Which case we use iFrames ?
+Create a order list inside unordered list it should be square
+Create a four sections images in square type is must be in two top side and two down side
+Create a table in web page it will be shared in pdf
+Create a nested tables
+Create any form using forms
+Create a login form using forms
+Create a website... It must have navigation part
+Using website using header , footer, body which contains contact home and about
+Create a website inside it placed some images
+Create a any time table using table
+Create a 10 rows with 2 columns and left will be an rgb colors and right will be rgba
+Create a 2 rows and 2 columns by using hsl properties
+Create a web page using fonts
+Create a web page using padding
+Create a web page using float properties
+Create a web page using scroll properties
+Create a web page using margin properties
+Create a web page using scroll margin properties
+Create a web site using box model properties
+Create a web page using overflow properties 
+
+
+Javascript 
+
+ 1. Implement login functionality take username and password cross check it
+ by username = Admin , password = Admin@123 . If it matches then print
+ “login success“ otherwise print “ incorrect username or password “ . If the
+ username is correct then only check the password .
+ 2. Write a function calculateSalary → that accepts two parameters ( monthly
+ pay scale , deductions ) : take a fixed amount of salary ( 25 k per month
+ and deduct the deductions amount , then display salary .
+ 3. Implement a function that actualPrice → take cost price and apply 20 %
+ discount on cost price , calculate the selling price of a product after
+ applying the discount , display the selling price .
+ 4. Create a Bank Account object with properties as follows
+ ● accountNumber
+ ● accountHolderName
+ ● Balance
+ Methods :- deposit ( amount deposited ) , withdraw ( subtract from
+ deposited amount ) , checkBalance ( calculate balance after withdrawal ) .
+ 5. Implement Loan object with properties as follows
+ ● loanAmount
+ ● interestRate
+ ● loanTerm
+ Methods :- calculateMonthlyPayment ( to be paid as EMI ) ,
+ checkLoanStatus ( calculate the loan status such as how many emis are
+ paid what is the remaining amount left to clear the loan including interest )
+ 6. Implement LoanManager object that can manage multiple loan objects and
+ perform operations like approving or rejecting loan applications ( separate
+ methods for applying loan , rejecting / approving loan as per some
+ eligibility criteria such as employee monthly income >= 30 k per month ,
+ need to have minimum balance amount in his account .
+ 7. Implement a program that checks if a student is eligible for a scholarship
+ based on their GPA . If GPA is >= 7.5 then student is eligible for scholarship
+ else it will be rejected .
+ 8. Write a program to display fibonacci series in reverse order
+ ( learn about fibonacci series then implement it )
+ 9. Implement a set of functions that mimic the behavior of a calculator . The
+ functions should take two numbers as input and perform the following
+ operations : addition , subtraction , division , multiplication , modulus .
+ 10. Write a program to sort the array of elements in descending order .
+11.Write a program to find ( remove the ) duplicate elements from an array of
+ elements and display the unique elements .
+ 12. Implement Google translation for 5 languages ( take a drop down have 5
+ language options- hindi , english , french , telugu , dutch . when you click
+ on each language the text should be displayed in the following languages
+ on ui text :- Hi welcome to google translation ) .
+ 13.Create a Instagram login form with following validations-> password with 8 chars , atleast 1 ( upper , lower , digit , special symbol )-> username should not have space , digits-> email should end with @gmail.com-> mobile number should accept only digits , exactly of 10 digits
+ Keep three options for user to login via mail , username , mobile number ,
+ for all three options password is common such as
+ Email and password , phone number and password , username and
+ password .
+ 14.Create a timestamp for following cases-> dd/mm/yyyy-> hh.mm.ss->create a format saying min ago , month ago , seconds ago ( 1 min ago , 2
+ months ago ) ( real time such as in social media saying after posting
+ anything you can see the timestamp of that post ) .
+ ( For months check with how system counts january month )
+ 15.Create a reset password form with following fields New password , Confirm
+ password ) add following restrictions-> don't allow user to copy the content-> don't allow user to paste the content
+ If the user performs any of the above operations, display him a text below
+ in red color saying as “ Copy is restricted “ , “ Paste is restricted” , disable
+ the right click option .
+ 17. Implement a code for the following condition “ If mouse is placed on the
+ image it should be able to magnify it “
